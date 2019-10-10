@@ -12,7 +12,7 @@ def get_townhall_city
 		tab_city = page.xpath("//a[@class = 'lientxt']")
 
 
-		    return tab_city       #retourne  les <a href=... > et noms des villes du 95 rpz  </a> de l'annuaire
+		    return tab_city       #retournee  les <a href=... > et noms des villes du 95 rpz  </a> de l'annuaire
 
 end
 
