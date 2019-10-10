@@ -21,7 +21,7 @@ end
 def get_townhall_mail(href)
 
 
-		page = Nokogiri::HTML(open("#{href}"))       #ouvrira grâce à la méthode d'après le lien de l'annuaire avec la fin des lien /95/.... qui correspond à chaque mairie
+		page = Nokogiri::HTML(open("#{href}"))       #ouvrira grâce à la méthode d'après le lien de l'annuaire avec la fin des lien /95/.... qui correspond à chaque mairie, et la position des mails sur la page de destination
 		mail = page.xpath("/html/body/div/main/section[2]/div/table/tbody/tr[4]/td[2]/text()")
 
 		    return mail
@@ -43,7 +43,7 @@ def get_townhall_urls
     		i = i + 1
     		end
 
-	      return tab_mail        #retourne les adresses mails récupérées à chaque tour de boucle dans le tableau tab_mail grâce au get_townhall_mail
+	      return tab_mail        #retourne les adresses mails récupérées à chaque tour de boucle dans le tableau tab_mail grâce au get_townhall_mail qui remmene à la position de l'adresse mail via le xpath
 
 end
 

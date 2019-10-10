@@ -3,7 +3,7 @@ require 'nokogiri'
 require 'open-uri'
 
 def deputes_list
-	
+
 	page = Nokogiri::HTML(open("http://www2.assemblee-nationale.fr/deputes/liste/alphabetique"))
 	@deputes_name = []
 	page.xpath("//ul[@class='col3']//li/a/text()")
