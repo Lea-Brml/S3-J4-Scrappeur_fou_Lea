@@ -4,48 +4,36 @@ require 'nokogiri'
 require 'open-uri'
 
 
-def get_townhall_email(townhall_url)
-
-    page = Nokogiri::HTML(open(towhall_url))
-
-    emails = page.xpath("/html/body/div/main/section[2]/div/table/tbody/tr[4]/td[2]")
-
-    return emails
-
-end
 
 
 
-
-def get_townhall_city
+def get_townhall_city   #methode pour recupérer le nom des villes
 
     page = Nokogiri::HTML(open("http://annuaire-des-mairies.com/val-d-oise.html"))
 
     mairies = page.xpath("//a[@class = 'lientxt']/text()")
-    puts mairies
+    return mairies
 
 end
 
 
 
+def get_townhall_urls(page)  #methode pour récupérer les adresses web des villes
 
-def get_townhall_urls
+  url = page.xpath("//a[@class='lientxt']")
+  tableau = []
 
-    tab_email = []
-    tab_city = get_townhall_city
-
-    i = 0
-
-    while i < tab.city.size
-
-      tab_email << get_townhall_email("https://https://www.annuaire-des-mairies.com/95/#{tab_city[i]}.html")
-      i = i + 1
+  url.each do |townhall_url|
+      tableau << "http://annuaire-des-mairies.com/" + townhall_url['href']
     end
 
-      return tab_email
-
+    return tableau
 
 end
+
+
 
 
 puts get_townhall_city
+
+puts get_townhall_urls(get_townhall_city)
