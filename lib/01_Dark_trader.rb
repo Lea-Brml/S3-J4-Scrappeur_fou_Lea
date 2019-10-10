@@ -12,20 +12,11 @@ page = Nokogiri::HTML(open("https://coinmarketcap.com/all/views/all/"))
 
 
 
-crypto_names = page.xpath('//td[3]') #.each do |symbol|
-
-	 if crypto_names.any?
-		 puts "success"
-	 else
-		 puts "error"
-	 end
-
-	 #end
+crypto_names = page.xpath('//td[3]')
 
 
 crypto_values = page.xpath('//a[@class="price"]')
 
-		#end
 
 
 tab = []
