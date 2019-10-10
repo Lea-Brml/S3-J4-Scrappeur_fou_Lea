@@ -21,9 +21,8 @@ def get_townhall_city
 
     page = Nokogiri::HTML(open("http://annuaire-des-mairies.com/val-d-oise.html"))
 
-    mairies = page.xpath("//a[@class = 'lientxt']")
-
-    return mairies
+    mairies = page.xpath("//a[@class = 'lientxt']/text()")
+    puts mairies
 
 end
 
@@ -50,8 +49,3 @@ end
 
 
 puts get_townhall_city
-
-
-
-
-#hash = crypto_names.zip(crypto_values).to_h
